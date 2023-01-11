@@ -1,8 +1,15 @@
+import renderer from 'react-test-renderer';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders App component correctly', () => {
+  const component = renderer.create(<App />).toJSON();
+
+  expect(component).toMatchSnapshot();
+});
+
+test('renders the link within the App component', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  expect(screen.getByRole('link')).toHaveClass('App-link');
 });

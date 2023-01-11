@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports['Counter rendering renders the counter correctly 1'] = `
+<div>
+  <h2>
+    Counter
+  </h2>
+  <h3
+    id="count"
+  >
+    0
+  </h3>
+  <button
+    data-test-id="add-counter"
+    onClick={[Function]}
+  >
+    +
+  </button>
+  <button
+    data-test-id="minus-counter"
+    onClick={[Function]}
+  >
+    -
+  </button>
+</div>
+`;
