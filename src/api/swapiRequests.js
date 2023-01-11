@@ -1,51 +1,21 @@
 import axios from 'axios';
 
-export async function fetchCharacter(id) {
-  try{
-    const response = await axios.get(`${process.env.REACT_APP_SWAPI_URL}/people/${id}`);
-    return response;
-  }
-  catch(error){
-      console.error(error);
-  }
-}
+export const fetchCharacter = async (id) => await getApi(`people/${id}`);
 
-export async function fetchSpecies(id){
-    try{
-        const response = await axios.get(`${process.env.REACT_APP_SWAPI_URL}/species/${id}`);
-        return response;
-      }
-      catch(error){
-          console.error(error);
-      } 
-}
+export const fetchSpecies = async (id) => await getApi(`species/${id}`);
 
-export async function fetchVehicles(id){
-    try{
-        const response = await axios.get(`${process.env.REACT_APP_SWAPI_URL}/vehicles/${id}`);
-        return response;
-      }
-      catch(error){
-          console.error(error);
-      } 
-}
+export const fetchVehicles = async (id) => await getApi(`vehicles/${id}`);
 
-export async function fetchStarships(id){
-    try{
-        const response = await axios.get(`${process.env.REACT_APP_SWAPI_URL}/starships/${id}`);
-        return response;
-      }
-      catch(error){
-          console.error(error);
-      } 
-}
+export const fetchStarships = async (id) => await getApi(`starships/${id}`);
 
-export async function fetchPlanet(id){
+export const fetchPlanet = async (id) =>  await apiGet(`planets/${id}`);
+
+const apiGet = async (endpoint) => {
     try{
-        const response = await axios.get(`${process.env.REACT_APP_SWAPI_URL}/planets/${id}`);
+        const response = await axios.get(`${process.env.REACT_APP_SWAPI_URL}/${endpoint}`);
         return response.data;
       }
       catch(error){
           console.error(error);
-      } 
+      }
 }
